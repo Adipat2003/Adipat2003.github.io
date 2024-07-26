@@ -1,6 +1,47 @@
 <!DOCTYPE html>
-<canvas width="960" height="600"></canvas>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
-<script> src="temp.js" </script>
-</script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizing NVIDIA Stock Data</title>
+  <link rel="stylesheet" type="text/css" href="designs.css">
+  <style>
+    rect {
+      pointer-events: all;
+      fill-opacity: 0;
+      stroke-opacity: 0;
+      z-index: 1;
+    }
+
+    .tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: #534caf;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: none;
+    opacity: .75;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="welcome-page">
+    <h1>Welcome to the Visualization of NVIDIA Stock Data</h1>
+    <button id="next-button">Next</button>
+  </div>
+
+  <div id="chart-page" style="display: none;">
+    <div id="chart-container"></div>
+    <div id="chart-container-2"></div>
+    <div id="buttons"></div> 
+  </div>
+
+  <script src="https://d3js.org/d3.v6.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+  <div id="tooltip"></div>
+  <script src="temp.js"></script>
+  <script src="transition.js"></script>
+</body>
+</html>

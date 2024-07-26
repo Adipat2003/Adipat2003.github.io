@@ -1,0 +1,78 @@
+/* Full page background image */
+body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: url('nvidia_back.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    opacity: 0.5; /* Adjust the transparency of the image */
+  }
+  
+
+    #welcome-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-sart; /* Aligns items to the bottom */
+    align-items: flex-start; /* Aligns items to the left */
+    height: 100vh; /* Full height of the viewport */
+    color: #FFFFFF; /* Bright white color */
+    padding: 20px; /* Adds some space around the text */
+  }
+  
+  
+  /* Style the next button */
+  #next-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #534caf;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #next-button:hover {
+    background-color: #392b7f;
+  }  
+
+  #chart-container {
+    max-height: 80vh; /* Adjust this value as needed */
+    overflow-y: auto;   
+  }
+  
+  #buttons {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+  
+  .year-button {
+    background-color: #534caf;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  .year-button:hover {
+    background-color: white;
+    color: black;
+  }
+  
+
+  body.chart-page:before {
+    background: none;
+  }
+  
