@@ -5,6 +5,10 @@ const height = 400 - margin.top - margin.bottom;
 const x = d3.scaleTime().rangeRound([0, width]);
 const y = d3.scaleLinear().rangeRound([height, 0]);
 
+const tooltip = d3.select("body")
+          .append("div")
+          .attr("class", "tooltip");
+
 const annotation_vals = [[
   {
     note: {
@@ -133,7 +137,6 @@ const svg2 = d3.select("#chart-container-2")
         currentYearIndex = index; // Update currentYearIndex to the selected year's index
         loadDataAndDrawGraph(year);
         loadDataAndDrawGraph2(year);
-        loadannotations(year);
       });
   });
   
@@ -152,7 +155,6 @@ const svg2 = d3.select("#chart-container-2")
   
       loadDataAndDrawGraph(nextYear);
       loadDataAndDrawGraph2(nextYear);
-      loadannotations(nextYear);
     });
     
 
@@ -202,22 +204,19 @@ const svg2 = d3.select("#chart-container-2")
         .attr("width", width)
         .attr("height", height)
         .style("opacity", 0); // make it invisible
-      
-        const tooltip = d3.select("body")
-          .append("div")
-          .attr("class", "tooltip");
   
       listeningRect.on("mousemove", function (event) {
         const [xCoord] = d3.pointer(event, this);
         const bisectDate = d3.bisector(d => d.date).left;
         const x0 = x.invert(xCoord);
-        const i = bisectDate(data, x0, 1);
-        const d0 = data[i - 1];
-        const d1 = data[i];
+        const i = bisectDate(filteredData, x0, 1);
+        const d0 = filteredData[i - 1];
+        const d1 = filteredData[i];
         const d = x0 - d0.date > d1.date - x0 ? d1 : d0;
         const xPos = x(d.date);
         const yPos = y(d.high);
-  
+        
+        console.log(yPos)
         circle
           .attr("cx", xPos)
           .attr("cy", yPos);

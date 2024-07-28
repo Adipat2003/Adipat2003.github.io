@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualizing NVIDIA Stock Data</title>
   <link rel="stylesheet" type="text/css" href="designs.css">
+</head>
+
+<body>
+  <div id="welcome-page">
+    <h1>Welcome to the Visualization of NVIDIA Stock Data</h1>
+    <button id="next-button">Next</button>
+  </div>
+
+  <div id="chart-page" style="display: none;">
+    <div id="chart-container"></div>
+    <div id="chart-container-2"></div>
+    <div id="buttons"></div> 
+  </div>
+
+  <script src="https://d3js.org/d3.v6.js"></script>
+  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   <style>
     rect {
       pointer-events: all;
@@ -24,22 +40,6 @@
     opacity: .75;
   }
   </style>
-</head>
-
-<body>
-  <div id="welcome-page">
-    <h1>Welcome to the Visualization of NVIDIA Stock Data</h1>
-    <button id="next-button">Next</button>
-  </div>
-
-  <div id="chart-page" style="display: none;">
-    <div id="chart-container"></div>
-    <div id="chart-container-2"></div>
-    <div id="buttons"></div> 
-  </div>
-
-  <script src="https://d3js.org/d3.v6.js"></script>
-  <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   <div id="tooltip"></div>
   <script src="temp.js"></script>
   <script src="transition.js"></script>
