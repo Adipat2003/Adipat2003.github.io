@@ -120,39 +120,41 @@ const svg2 = d3.select("#chart-container-2")
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-const years = ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"];
+  const years = ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"];
 
-let currentYearIndex = 0;
-
-years.forEach(year => {
+  let currentYearIndex = 0;
+  
+  years.forEach((year, index) => {
+    d3.select("#buttons")
+      .append("button")
+      .attr("class", "year-button")
+      .text(year)
+      .on("click", function() {
+        currentYearIndex = index; // Update currentYearIndex to the selected year's index
+        loadDataAndDrawGraph(year);
+        loadDataAndDrawGraph2(year);
+        loadannotations(year);
+      });
+  });
+  
   d3.select("#buttons")
     .append("button")
     .attr("class", "year-button")
-    .text(year)
+    .text("Next")
     .on("click", function() {
-      loadDataAndDrawGraph(year);
-      loadDataAndDrawGraph2(year);
-      loadannotations(year);
+      currentYearIndex++;
+  
+      if (currentYearIndex >= years.length) {
+        currentYearIndex = years.length - 1;
+      }
+  
+      const nextYear = years[currentYearIndex];
+  
+      loadDataAndDrawGraph(nextYear);
+      loadDataAndDrawGraph2(nextYear);
+      loadannotations(nextYear);
     });
-});
-
-d3.select("#buttons")
-  .append("button")
-  .attr("class", "year-button")
-  .text("Next")
-  .on("click", function() {
-    currentYearIndex++;
-
-    if (currentYearIndex >= years.length) {
-      currentYearIndex = years.length - 1;
-    }
-
-    const nextYear = years[currentYearIndex];
-
-    loadDataAndDrawGraph(nextYear);
-    loadDataAndDrawGraph2(nextYear);
-    loadannotations(nextYear);
-  });
+    
 
   function loadDataAndDrawGraph(year) {
     d3.csv("nvidia_stock.csv", d3.autoType).then(function(data) {
