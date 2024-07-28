@@ -144,7 +144,7 @@ const svg2 = d3.select("#chart-container-2")
       .attr("class", "year-button")
       .text(year)
       .on("click", function() {
-        currentYearIndex = index; // Update currentYearIndex to the selected year's index
+        currentYearIndex = index;
         loadDataAndDrawGraph(year);
         loadDataAndDrawGraph2(year);
       });
