@@ -221,6 +221,7 @@ const svg2 = d3.select("#chart-container-2")
           .attr("cx", xPos)
           .attr("cy", yPos);
 
+
         circle.transition()
           .duration(50)
           .attr("r", 5);
@@ -228,7 +229,7 @@ const svg2 = d3.select("#chart-container-2")
           tooltip
           .style("display", "block")
           .style("left", `${xPos + 100}px`)
-          .style("top", `${yPos + 50}px`)
+          .style("top", `${yPos - 100}px`)
           .html(`<strong>Date:</strong> ${d.date.toLocaleDateString()}<br><strong>High:</strong> ${d.high.toFixed(2)}<br><br><strong>DIGGING DEEPER</strong><br><br><strong>Low:</strong> ${d.low.toFixed(2)}<br><strong>Open:</strong> ${d.open.toFixed(2)}<br><strong>Close:</strong> ${d.close.toFixed(2)}`)
   
       });
