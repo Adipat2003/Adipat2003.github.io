@@ -107,7 +107,17 @@ const annotation_vals = [[
   y: 150,
   dy: -40,
   dx: -20
-}],[]
+}],[{
+  note: {
+    label: "Nvidia unveiled its next-gen Blackwell AI platform at GTC, featuring a powerful new GPU and Superchip designed to significantly enhance generative AI and large language models.",
+    title: "Nvidia Unveils Next-Gen Blackwell AI Platform",
+    wrap: 700
+  },
+  x: 550,
+  y: 140,
+  dy: 70,
+  dx: 20
+}]
 ]
 
 const svg = d3.select("#chart-container")
